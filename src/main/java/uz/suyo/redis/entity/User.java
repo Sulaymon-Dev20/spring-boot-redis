@@ -1,20 +1,13 @@
 package uz.suyo.redis.entity;
 
 import org.springframework.data.redis.core.RedisHash;
-import org.springframework.data.redis.core.index.Indexed;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import java.io.Serializable;
 
-@RedisHash(value = "cache_item", timeToLive = 600)
+@RedisHash(value = "cache_item", timeToLive = -1)
 public class User implements Serializable {
     @Id
-    @Indexed
-    @SequenceGenerator(name = "SEQ_GEN", sequenceName = "SEQ_USER", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQ_GEN")
     private Long id;
     private String name;
     private long followers;

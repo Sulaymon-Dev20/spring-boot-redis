@@ -14,8 +14,8 @@ import uz.suyo.redis.repository.UserRepository;
 
 @SpringBootApplication
 @EnableRedisRepositories(enableKeyspaceEvents = RedisKeyValueAdapter.EnableKeyspaceEvents.ON_STARTUP,
-    basePackages = {"uz.suyo.redis.repository"})
-@EnableJpaRepositories(basePackages = {"uz.suyo.redis.repository.db"})
+        basePackages = "uz.suyo.redis.repository")
+@EnableJpaRepositories(basePackages = "uz.suyo.redis.repository")
 public class RedisTestApplication implements CommandLineRunner {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
     private final UserRepository userRepository;
